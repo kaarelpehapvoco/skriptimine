@@ -2,9 +2,13 @@
 
 # PHP paigaldusskript
 
-# Kontrollime, kas apache2 on juba paigaldatud
+# Kontrollime, kas PHP on juba paigaldatud
 
-phpStatus=$(dpkg-query -W -f='${status}' php7.0 2>/dev/null | grep -c 'ok installed')
+phpStatus=$(dpkg-query -W -f='${status}' php8.2 2>/dev/null | grep -c 'ok installed')
+
+# Paigaldame PHP
 
 if [ $phpStatus -eq 0 ]; then
+echo "Paigaldame PHP"
+sudo apt install php
 fi
